@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block img %}
+<div>
+    <img src="{% static 'images/HomePage.svg' %}" class="img-fluid" id="mainimage">
+</div>
+{% endblock img %}
+
+{% block linkcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+<title>WelcomePage</title>
+{% endblock linkcss %}
+
+{% block content %}
+<div class="container-fluid" id="containerfirst">
+    <h3>
+        Your health service
+    </h3>
+</div>
+<div class="container-fluid">
+    <h4 class="responsive-font1">
+        Health information, advice, supports and services
+    </h4>
+</div>
+{% endblock content %}
