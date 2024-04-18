@@ -16,10 +16,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from calander import views
+from django.views.generic.base import TemplateView, include
 from .views import HomePageView
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', HomePageView.as_view(), name='home'),
+    path('', views.index, name='index'), 
+    path('all_events/', views.all_events, name='all_events'), 
+    path('add_event/', views.add_event, name='add_event'), 
+    path('update/', views.update, name='update'),
+    path('remove/', views.remove, name='remove'),
+
+    path("patients/", include("patients.urls")),
+    path("patients/", include("django.contrib.auth.urls")),
+    path("", TemplateView.as_view(template_name="home.html"), name="home"),
 ]
+
