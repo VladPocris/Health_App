@@ -23,3 +23,13 @@ silx==2.0.1
 six==1.16.0
 sqlparse==0.5.0
 tzdata==2024.1
+certifi==2022.12.7
+charset-normalizer==3.1.0
+crispy-bootstrap5==0.7
+cx_Oracle==8.3.0
+django-easy-faq==1.5
+idna==3.4
+mysqlclient==2.2.4
+pystache==0.6.0
+requests==2.28.2
+static==1.1.1

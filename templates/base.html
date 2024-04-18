@@ -38,7 +38,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active" id="homeBTN">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'home' %}">
                             <i class="fa fa-fw fa-home" aria-hidden="true">
                             </i>
                             Home
@@ -59,14 +59,14 @@
                     {% if user.is_authenticated %}
                     {% else %}
                     <li class="nav-item" id="loginBTN">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'login' %}">
                             <i class="fa-solid fa-right-to-bracket">
                             </i>
                             Log in
                         </a>
                     </li>
                     <li class="nav-item" id="signupBTN">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'signup' %}">
                             <i class="fa-solid fa-user-plus">
                             </i>
                             Sign up
@@ -81,7 +81,7 @@
                         </a>
                     </li>
                     <li class="nav-item" id="signupBTN">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'logout' %}">
                             <i class="fa-solid fa-user-plus">
                             </i>
                             Log out
