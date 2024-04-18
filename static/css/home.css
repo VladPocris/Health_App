@@ -1,0 +1,39 @@
+/*--Styling the start content container Start--*/
+
+#containerfirst {
+
+    margin-top: -60px;
+    width: 50%;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.8;
+
+}
+
+h3 {
+
+    text-align: center;
+
+}
+
+#iframe1 {
+
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+
+/*--Styling the start content container End--*/
+
+/*Styling the background image Start*/
+
+#mainimage {
+
+    width: 200%;
+    height: 350px;
+
+}
+
+/*Styling the background image End*/
