@@ -80,11 +80,14 @@
                             <i class="fas fa-user-circle"></i>
                         </a>
                     </li>
-                    <li class="nav-item" id="signupBTN">
-                        <a class="nav-link" href="{% url 'logout' %}">
-                            <i class="fa-solid fa-user-plus">
+                    <li class="nav-item" id="logoutBTN">
+                        <form action="{% url 'logout' %}" method="post" style="display: none;" id="logoutForm">
+                            {% csrf_token %}
+                        </form>
+                        <a class="nav-link" href="#" id="logoutLink">
+                            <i class="fa-solid fa-user-minus">
                             </i>
-                            Log out
+                            Log Out
                         </a>
                     </li>
                     {% endif %}
@@ -117,6 +120,9 @@
             </div>
         </footer>
     </div>
+    <script src="{% static 'js/base.js' %}"></script>
+    {% block linkJS %}
+    {% endblock linkJS %}
 </body>
 
 </html>
