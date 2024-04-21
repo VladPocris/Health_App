@@ -1,4 +1,4 @@
-# Environments 
+# Ignore virutal environments 
 .env 
 .venv 
 env/ 
@@ -6,3 +6,19 @@ venv/
 ENV/ 
 env.bak/ 
 venv.bak/ 
+
+# Ignore database files
+*.sqlite3
+*.db
+
+# Ignore migrations
+**/migrations/
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore static files
+static/
+
+# Ignore log files
+*.log
