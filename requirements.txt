@@ -11,6 +11,8 @@ hdf5plugin==4.4.0
 kiwisolver==1.4.5
 lxml==5.2.1
 matplotlib==3.8.4
+mysql==0.0.3
+mysqlclient==2.2.4
 numpy==1.26.4
 packaging==24.0
 pillow==10.3.0
@@ -23,6 +25,7 @@ silx==2.0.1
 six==1.16.0
 sqlparse==0.5.0
 tzdata==2024.1
+<<<<<<< HEAD
 asgiref==3.8.1
 contourpy==1.2.1
 crispy==0.7.4
@@ -58,3 +61,5 @@ mysqlclient==2.2.4
 pystache==0.6.0
 requests==2.28.2
 static==1.1.1
+=======
+>>>>>>> main

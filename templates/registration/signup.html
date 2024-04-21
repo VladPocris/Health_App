@@ -1,9 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Sign Up{% endblock %}
 
+{% block img %}
+<div>
+    <img src="{% static 'images/HomePage.svg' %}" class="img-fluid" id="mainimage">
+</div>
+{% endblock img %}
+
+{% block linkcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% endblock linkcss %}
+
 {% block content %}
-<h2>Sign up</h2>
+<h2 id="signup_text">Sign up</h2>
 <form method="post">
   {% csrf_token %}
   {{ form }}
