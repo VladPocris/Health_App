@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block img %}
+<div>
+    <img src="{% static 'images/HomePage.svg' %}" class="img-fluid" id="mainimage">
+</div>
+{% endblock img %}
+
+{% block linkcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+<title>Contact</title>
+{% endblock linkcss %}
+
+{% block linkJS %}
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock linkJS %}
+
+{% block content %}
+<div class="container-fluid" id="containerfirst">
+    <center>
+        <h3>
+            To contact us, please fill the form bellow.
+        </h3>
+        <form method="post" action=".">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-header blue accent-1">
+                        <h3 class="mt-2">
+                            <i class="fas fa-envelope" aria-hidden="true">
+                            </i>
+                            Write to us:
+                        </h3>
+                    </div>
+                    <p class="dark-grey-text">
+                        We'll write rarely, but only the best content.
+                    </p>
+                    <div class="md-form">
+                        <i class="fas fa-user prefix grey-text" aria-hidden="true">
+                            <label for="form-name">
+                                Your name
+                            </label>
+                        </i>
+                        {% csrf_token %}
+
+                        {{ form.name }}
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-envelope prefix grey-text" aria-hidden="true">
+                            <label for="form-email">
+                                Your email
+                            </label>
+                        </i>
+                        {% csrf_token %}
+
+                        {{ form.email }}
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-tag prefix grey-text" aria-hidden="true">
+                            <label for="form-subject">
+                                Subject
+                            </label>
+                        </i>
+                        {% csrf_token %}
+
+                        {{ form.subject }}
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-pencil-alt prefix grey-text" aria-hidden="true">
+                            <label for="form-message">
+                                Message
+                            </label>
+                        </i>
+                        {% csrf_token %}
+
+                        {{ form.message }}
+                    </div>
+                    <div class="text-center">
+                        <button class="btn" action="submit">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2381.855189700307!2d-6.295739487304163!3d53.345848372173556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670c370a1869e1%3A0xbf020ba9f8bffac4!2sDr.%20Steevens&#39;%20Hospital!5e0!3m2!1sen!2sie!4v1713706295535!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <h3>
+            Our address:
+        </h3>
+        <p>
+            <strong>
+                HSE head office
+                Dr. Steevens' Hospital
+            </strong>
+            <br>
+            Steeven's Lane
+            <br>
+            Dublin 8
+            <br>
+            United States
+            D08 W2A8
+            <br>
+        </p>
+        <h5>
+            Contact numbers:
+        </h5>
+        Phone: 01 635 2000
+        <p></p>
+    </center>
+</div>
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock content%}
