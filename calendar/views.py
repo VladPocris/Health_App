@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.http import JsonResponse 
-from calander.models import Events 
+from calendar.models import Events 
  
 # Create your views here.
-def index(request):  
+def calendar(request):  
     all_events = Events.objects.all()
     context = {
-        "events":all_events,
+        "all_events":all_events,
     }
-    return render(request,'index.html',context)
+    return render(request,'calendar.html',context)
  
 def all_events(request):                                                                                                 
     all_events = Events.objects.all()                                                                                    
@@ -32,7 +32,7 @@ def add_event(request):
     data = {}
     return JsonResponse(data)
  
-def update(request):
+def update_event(request):
     start = request.GET.get("start", None)
     end = request.GET.get("end", None)
     title = request.GET.get("title", None)
@@ -45,7 +45,7 @@ def update(request):
     data = {}
     return JsonResponse(data)
  
-def remove(request):
+def remove_event(request):
     id = request.GET.get("id", None)
     event = Events.objects.get(id=id)
     event.delete()
