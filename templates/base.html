@@ -72,6 +72,13 @@
                             Sign up
                         </a>
                     </li>
+                    <li class="nav-item" id="calendar">
+                        <a class="nav-link" href="{% url 'calendar' %}">
+                            <i class="fa-solid fa-calendar"></i>
+                            </i>
+                            Calendar
+                        </a>
+                    </li>
                     {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item" id="loginBTN">
