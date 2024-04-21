@@ -10,16 +10,21 @@ def calendar(request):
     }
     return render(request,'calendar.html',context)
  
-def all_events(request):                                                                                                 
-    all_events = Events.objects.all()                                                                                    
-    out = []                                                                                                             
-    for event in all_events:                                                                                             
-        out.append({                                                                                                     
-            'title': event.name,                                                                                         
-            'id': event.id,                                                                                              
-            'start': event.start.strftime("%m/%d/%Y, %H:%M:%S"),                                                         
-            'end': event.end.strftime("%m/%d/%Y, %H:%M:%S"),                                                             
-        })                                                                                                               
+def all_events(request):
+    all_events = Events.objects.all()
+    out = []
+    
+    for event in all_events:
+        start_time = event.start.strftime("%m/%d/%Y, %H:%M:%S") if event.start is not None else None
+        end_time = event.end.strftime("%m/%d/%Y, %H:%M:%S") if event.end is not None else None
+        
+        out.append({
+            'title': event.name,
+            'id': event.id,
+            'start': start_time,
+            'end': end_time,
+        })
+                                                                                                         
                                                                                                                       
     return JsonResponse(out, safe=False) 
  
