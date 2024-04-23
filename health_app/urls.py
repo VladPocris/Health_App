@@ -23,6 +23,7 @@ from contact_app.views import ContactView, ContactSuccessView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', HomePageView.as_view(), name='home'),
     path('home/', HomePageView.as_view(), name='home'),
     path('calendar/', include("calendar.urls")),
     path("patients/", include("patients.urls")),
