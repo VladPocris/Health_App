@@ -17,8 +17,5 @@ venv.bak/
 # Ignore compiled Python files
 *.pyc
 
-# Ignore static files
-static/
-
 # Ignore log files
 *.log

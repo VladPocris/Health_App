@@ -1,0 +1,148 @@
+#textyoast {
+
+    text-decoration: none;
+    font-weight: normal;
+    color: #007bff;
+
+}
+
+#textyoast:hover {
+
+    text-decoration: underline;
+    font-weight: 500;
+    color: #007bff;
+
+}
+
+#textyoastsecond {
+
+    text-decoration: underline;
+    font-weight: bold;
+    color: black;
+
+}
+
+@media (max-width: 1199.98px) {
+    #textyoastsecond {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    #textyoastsecond {
+        font-size: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    #simpletext {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    #simpletext {
+        font-size: 15px;
+        text-align: center;
+    }
+}
+
+/*--Styling the card itself and the items inside of it Start--*/
+
+.card {
+
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+
+}
+
+#id-name {
+
+    text-align: center;
+
+}
+
+#id-email {
+
+    text-align: center;
+
+}
+
+#id-subject {
+
+    text-align: center;
+
+}
+
+#id-text {
+
+    text-align: left;
+
+}
+
+.btn {
+
+    margin-top: 5px;
+    background: blue;
+
+}
+
+/*--Styling the card itself and the items inside of it End--*/
+
+
+/*--Styling the main container for content Start--*/
+
+#containerfirst {
+
+    margin-top: -100px;
+    border: 2px solid black;
+    background-color: white;
+    opacity: 0.9;
+    width: 60%;
+    margin-bottom: 77px;
+
+}
+
+/*--Styling the main container for content End--*/
+/*--Styling the container that holds the location from google maps Start--*/
+
+.map-container {
+
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+
+}
+
+.map-container iframe {
+
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+}
+
+/*--Styling the container that holds the location from google maps End--*/
+/*Styling the background image Start*/
+
+#mainimage {
+
+    width: 100%;
+    height: 350px;
+
+}
