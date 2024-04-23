@@ -80,12 +80,15 @@ WSGI_APPLICATION = 'health_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django',
-        'USER': 'root',
+        'NAME': 'calendar',
+        'USER': 'admin',
         'PASSWORD': 'Health_app',
-        'HOST': 'localhost',
-        'PORT': '3306'
-    }
+        'HOST': 'healthapp-calendar.cr0sw0w4glmn.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
+        'OPTIONS': {
+    'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+    },
+     }
 }
 
 

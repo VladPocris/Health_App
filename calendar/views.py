@@ -19,7 +19,7 @@ def all_events(request):
         end_time = event.end.strftime("%m/%d/%Y, %H:%M:%S") if event.end is not None else None
         
         out.append({
-            'title': event.name,
+            'title': event.title,
             'id': event.id,
             'start': start_time,
             'end': end_time,
@@ -32,7 +32,7 @@ def add_event(request):
     start = request.GET.get("start", None)
     end = request.GET.get("end", None)
     title = request.GET.get("title", None)
-    event = Events(name=str(title), start=start, end=end)
+    event = Events(title=str(title), start=start, end=end)
     event.save()
     data = {}
     return JsonResponse(data)
@@ -45,7 +45,7 @@ def update_event(request):
     event = Events.objects.get(id=id)
     event.start = start
     event.end = end
-    event.name = title
+    event.title = title
     event.save()
     data = {}
     return JsonResponse(data)
