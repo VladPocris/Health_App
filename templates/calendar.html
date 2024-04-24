@@ -31,6 +31,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 <script src="{% static 'js/calendar.js' %}"></script>
 <script>
+    
    $(document).ready(function () {
        var calendar = $('#calendar').fullCalendar({
            header: {
@@ -44,6 +45,7 @@
            editable: true,
            eventLimit: true,
            select: function (start, end, allDay) {
+            
                var title = prompt("Enter Event Title");
                if (title) {
                    var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
@@ -63,6 +65,7 @@
                    });
                }
            },
+    
            eventResize: function (event) {
                var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
                var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
@@ -102,7 +105,7 @@
                    }
                });
            },
- 
+           
            eventClick: function (event) {
                if (confirm("Are you sure you want to remove it?")) {
                    var id = event.id;
