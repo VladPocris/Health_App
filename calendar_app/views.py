@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.http import JsonResponse 
-from calendar.models import Events 
+from calendar_app.models import Events 
  
 # Create your views here.
-def calendar(request):  
+def calendar_app(request):  
     all_events = Events.objects.all()
     context = {
         "all_events":all_events,
     }
-    return render(request,'calendar.html',context)
+    return render(request,'calendar_app.html',context)
  
 def all_events(request):
     all_events = Events.objects.all()

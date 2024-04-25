@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'contact_app',
     'storages',
+    'calendar_app',
 ]
 
 MIDDLEWARE = [
@@ -155,7 +156,7 @@ EMAIL_USE_SSL = False
 
 #S3 BUCKETS CONFIG
 region= 'us-east-1'
-use_s3 = True
+use_s3 = False
 
 STATIC_URL = '/static/'
 
