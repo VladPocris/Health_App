@@ -36,11 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'calendar',
     'patients',
     'crispy',
     'crispy_forms',
     'contact_app',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +124,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-STATIC_URL = '/static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 STATICFILES_FINDERS = [
@@ -142,6 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 
+# Email backend
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_HOST_USER = '0e05e9628356c1'
@@ -149,3 +149,31 @@ EMAIL_HOST_PASSWORD = '6b5801210ff092'
 EMAIL_PORT = '2525'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+#S3 BUCKETS CONFIG
+region= 'us-east-1'
+use_s3 = True
+
+STATIC_URL = '/static/'
+
+if use_s3:
+    AWS_ACCESS_KEY_ID = 'ASIATFBAPOKZYBOP6ZGU'
+    AWS_SECRET_ACCESS_KEY = 'a4xtR6MHe3LeT31aFD63VAy9eCBJteBXUZeAzXLx'
+    AWS_STORAGE_BUCKET_NAME = 'staticfiles-implementation-25-04-2024'
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_S3_FILE_OVERWRITE = False
+    # s3 static settings
+    STORAGES = {
+
+        # Media file (image) management
+        "default": {
+            "BACKEND": "storages.backends.s3boto3.S3StaticStorage"
+        },
+        # CSS and JS file management
+        "staticfiles": {
+            "BACKEND": "storages.backends.s3boto3.S3StaticStorage"
+        }
+    }
+
+else:
+    STATIC_URL = '/static/'

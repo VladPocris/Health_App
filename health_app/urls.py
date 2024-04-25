@@ -25,7 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePageView.as_view(), name='home'),
     path('home/', HomePageView.as_view(), name='home'),
-    path('calendar/', include("calendar.urls")),
     path("patients/", include("patients.urls")),
     path("patients/", include("django.contrib.auth.urls")),
     path('contact/', ContactView, name='contact'),
