@@ -1,15 +1,18 @@
 from django.shortcuts import render
 from django.http import JsonResponse 
-from calendar.models import Events 
+from calendar_app.models import Events 
+from django.contrib.auth.decorators import login_required
  
 # Create your views here.
-def calendar(request):  
+@login_required
+def calendar_app(request):  
     all_events = Events.objects.all()
     context = {
         "all_events":all_events,
     }
-    return render(request,'calendar.html',context)
+    return render(request,'calendar_app.html',context)
  
+@login_required
 def all_events(request):
     all_events = Events.objects.all()
     out = []
@@ -27,7 +30,7 @@ def all_events(request):
                                                                                                                                                                                                                          
     return JsonResponse(out, safe=False) 
 
- 
+@login_required 
 def add_event(request):
     start = request.GET.get("start", None)
     end = request.GET.get("end", None)
@@ -36,7 +39,8 @@ def add_event(request):
     event.save()
     data = {}
     return JsonResponse(data)
- 
+
+@login_required 
 def update_event(request):
     start = request.GET.get("start", None)
     end = request.GET.get("end", None)
@@ -50,6 +54,7 @@ def update_event(request):
     data = {}
     return JsonResponse(data)
  
+@login_required 
 def remove_event(request):
     id = request.GET.get("id", None)
     event = Events.objects.get(id=id)
