@@ -72,6 +72,13 @@
                             Sign up
                         </a>
                     </li>
+                    <li class="nav-item" id="loginBTN">
+                        <a class="nav-link" href="{% url 'password_reset' %}">
+                            <i class="fa-solid fa-right-to-bracket">
+                            </i>
+                             Forgot your password?
+                        </a>
+                    </li>
                     {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item" id="loginBTN">
@@ -95,6 +102,13 @@
                             <i class="fa-solid fa-calendar"></i>
                             </i>
                             Calendar
+                        </a>
+                    </li>
+                    <li class="nav-item" id="loginBTN">
+                        <a class="nav-link" href="{% url 'password_change' %}">
+                            <i class="fa-solid fa-right-to-bracket">
+                            </i>
+                            Change Password
                         </a>
                     </li>
                     {% endif %}
@@ -129,5 +143,4 @@
     {% block linkJS %}
     {% endblock linkJS %}
 </body>
-
 </html>
