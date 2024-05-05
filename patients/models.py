@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 import datetime
 
 # Create your models here.
@@ -9,10 +10,13 @@ class Category(models.Model):
         return self.name
 
 class Patient(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name= models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone_num = models.CharField(max_length=10)
     email = models.CharField(max_length=50)
+    profile_image = models.ImageField(default='default.jpg', upload_to='profile_images')
+
 
 
 class Medicine(models.Model):

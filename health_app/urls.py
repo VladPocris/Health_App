@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import HomePageView
+from .views import HomePageView, profile
 from django.conf import settings
 from django.conf.urls.static import static
 from contact_app.views import ContactView, ContactSuccessView
@@ -30,6 +30,7 @@ urlpatterns = [
     path("patients/", include("django.contrib.auth.urls")),
     path('contact/', ContactView, name='contact'),
     path('contact/success/', ContactSuccessView, name='success'),
-]
+    path('profile/', profile, name='users-profile'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
