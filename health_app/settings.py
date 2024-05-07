@@ -37,11 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'patients',
-    'calendar_app',
     'crispy',
     'crispy_forms',
     'contact_app',
     'storages',
+    'calendar_app',
 ]
 
 MIDDLEWARE = [
@@ -130,7 +130,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-STATIC_URL = '/static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 STATICFILES_FINDERS = [
