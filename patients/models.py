@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from PIL import Image
+from django.forms import ModelForm
 
 # Create your models here.
 class Category(models.Model):
@@ -24,18 +25,18 @@ class Prescription(models.Model):
     dosage = models.IntegerField(default=1)
     date = models.DateField(default=datetime.datetime.today)
     status = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.medicine
     
 class Patient(models.Model):
+    name = models.CharField(max_length=255, default='')
     user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
-    first_name= models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
     phone_num = models.CharField(max_length=10)
     email = models.CharField(max_length=50)
     profile_image = models.ImageField(default='default.jpg', upload_to='profile_images')
     prescription = models.ForeignKey(Prescription, on_delete=models.CASCADE, default=1)
+
+    def __str__(self):
+        return self.name
+
 
 def save(self, *args, **kwargs):
     #super().save()

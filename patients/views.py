@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UpdateProfileForm, UpdateUserForm
+from .models import Patient
 
 #Sign up page
 class SignUpView(CreateView):
@@ -28,4 +29,7 @@ def profile(request):
           profile_form = UpdateProfileForm(instance=request.user.profile)
 
      return render(request, 'profile.html', {'user_form': user_form, 'profile_form': profile_form})    
-     
+
+def patient_list(request):
+     patients = Patient.objects.all()
+     return render(request, 'profile.html', {'patients': patients})
