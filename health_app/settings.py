@@ -54,6 +54,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+
 ROOT_URLCONF = 'health_app.urls'
 
 TEMPLATES = [
@@ -161,9 +163,9 @@ use_s3 = True
 STATIC_URL = '/static/'
 
 if use_s3:
-    AWS_ACCESS_KEY_ID = 'AKIATCKAMV54IFGC2MEQ'
-    AWS_SECRET_ACCESS_KEY = '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'
-    AWS_STORAGE_BUCKET_NAME = 'staticfiles-implementation2-25-04-2024'
+    AWS_ACCESS_KEY_ID = 'ASIATCKAMV54AAO62GWV'
+    AWS_SECRET_ACCESS_KEY = 'IP1RPHKh8wL3iKH/IW/gZHk3o4I0clWVilocU+8J'
+    AWS_STORAGE_BUCKET_NAME = 'staticfiles-implementation2-25-04-2024' 
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_S3_FILE_OVERWRITE = False
     # s3 static settings
