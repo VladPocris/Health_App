@@ -1,0 +1,89 @@
+/*--Styling background Image from the top Start --*/
+
+#imagemain {
+
+    width: 1920px;
+    height: 375px;
+
+}
+
+/*--Styling background Image from the top End --*/
+/*--Styling the main container for content Start--*/
+
+#containerfirst {
+
+    margin-top: -100px;
+    border: 2px solid black;
+    background-color: white;
+    opacity: 0.9;
+    width: 60%;
+    margin-bottom: 77px;
+
+}
+
+/*--Styling the main container for content End--*/
+#textyoast:hover {
+
+    text-decoration: underline;
+    font-weight: 500;
+    color: #007bff;
+
+}
+
+#textyoast {
+
+    font-weight: 400;
+    text-decoration: none;
+    color: #007bff;
+}
+
+#textyoastsecond {
+
+    text-decoration: underline;
+    font-weight: bold;
+    color: black;
+
+}
+
+@media (max-width: 1199.98px) {
+    #textyoastsecond {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    #textyoastsecond {
+        font-size: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    #simpletext {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    #simpletext {
+        font-size: 15px;
+        text-align: center;
+    }
+}
+
+.paginator {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+#elegantshd {
+    color: lightblue;
+    background-color: white;
+    letter-spacing: 0;
+    text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+    font-size: 25px;
+}

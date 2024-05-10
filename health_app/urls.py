@@ -30,6 +30,7 @@ urlpatterns = [
     path("patients/", include("django.contrib.auth.urls")),
     path('contact/', ContactView, name='contact'),
     path('contact/success/', ContactSuccessView, name='success'),
+    path('news/', include('news.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

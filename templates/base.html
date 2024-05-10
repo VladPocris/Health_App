@@ -56,6 +56,13 @@
                         </a>
                     </li>
                     {% endif %}
+                    <li class="nav-item" id="newsBTN">
+                        <a class="nav-link" href="{% url 'news_list' %}">
+                            <i class="fa-solid fa-radio">
+                            </i>
+                            News
+                        </a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     {% if user.is_authenticated %}

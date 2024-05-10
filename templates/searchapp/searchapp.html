@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block img %}
+<div>
+    <img src="{% static 'images/HomePage.svg' %}" class="img-fluid" id="mainimage">
+</div>
+{% endblock img %}
+
+{% block linkcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/news.css' %}">
+<title>News</title>
+{% endblock linkcss %}
+
+{% block linkJS %}
+<script src="{% static 'js/news.js' %}"></script>
+{% endblock linkJS %}
+
+{% block content %}
+<div class="container-fluid" id="containerfirst">
+    <center>
+        <h3>
+            Recent News
+        </h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="form-header blue accent-1">
+                    <form class="d-flex" action="" method="get">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <div>
+                        <p class="text-center my_search_text">Results for: <b>"{{ query }}"</b></p>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+        <div class="row g-2">
+            {% for News in all_news_list %}
+            <div class="col-md-3">
+                <div class="card p-2">
+                    <div class="mt-3">
+                        <a href="{{ News.link }}" style="text-decoration: none; color: black">
+                            {% if News.image %}
+                            <img src="{{ News.image.url }}" width="100%">
+                            {% endif %}
+                            <h6 class="mt-3">
+                                {{ News.title }}
+                            </h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="row mx-auto">
+                <p class="text-center my_search_text">0 results found.</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div id="paginator">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                <a href="?page={{1}}&q={{ query }}"><button type="button" class="btn btn-outline-secondary btn-sm">first</button></a>
+                <a href="?page={{ page_obj.previous_page_number }}&q={{ query }}"><button type="button" class="btn btn-outline-secondary btn-sm">previous</button></a>
+                {% endif %}
+        
+                <span class="current">
+                   Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}&q={{ query }}"><button type="button" class="btn btn-outline-secondary btn-sm">next</button></a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}&q={{ query }}"><button type="button" class="btn btn-outline-secondary btn-sm">last &raquo;</button></a>
+                {% endif %}
+            </span>
+        </div>
+
+    </center>
+</div>
+{% endblock content %}
