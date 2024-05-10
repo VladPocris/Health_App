@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block img %}
+<div>
+    <img src="{% static 'images/HomePage.svg' %}" class="img-fluid" id="mainimage">
+</div>
+{% endblock img %}
+
+{% block linkcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/news.css' %}">
+<title>News</title>
+{% endblock linkcss %}
+
+{% block linkJS %}
+<script src="{% static 'js/news.js' %}"></script>
+{% endblock linkJS %}
+
+{% block content %}
+<center>
+    <h1>Edit News</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+</center>
+{% endblock content %}

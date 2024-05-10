@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .forms import ContactForm
 from django.core.mail import EmailMessage
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-
+@login_required
 def ContactView(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -28,5 +29,6 @@ def ContactView(request):
         'form': form
     })
 
+@login_required
 def ContactSuccessView(request):
     return render(request, 'contact/success/contact_success.html')

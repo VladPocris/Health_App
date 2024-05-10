@@ -35,6 +35,8 @@ urlpatterns = [
     path('profile/', profile, name='users-profile'),
     path('update_user/', views.update_user, name='update_user'),
     path('admin/', admin.site.urls, name='admin:index'),
+    path('news/', include('news.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
