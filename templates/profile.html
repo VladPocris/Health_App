@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block img %}
+{% endblock img %}
+{% block title %}Profile Page{% endblock title %}
+{% block content %}
+    {% if user.is_staff %}
+        <h1>Hello {{user.first_name}}</user></h1>
+        <a href="{% url 'admin:index' %}" class="btn btn-primary">Go to Admin Page</a>
+    {% else %}
+    <div class="row my-3 p-3">
+        <div class="row my-3 p-3">
+            <img class="rounded-circle account-img" src="{{ user.patient.profile_image.url }}" style="cursor: pointer; width: 175px; height: 150px;  border: 1px solid black; outline-style: solid;"/>
+        </div>
+        <a href="{% url 'update_user' %}">Update</a>
+        <a href="{% url 'password_change' %}">Change Password</a>
+        <div>
+            <h2>Hello {{user.first_name}} {{user.last_name}}</h2>
+            <h3>Email: {{user.email}}</h3>
+            <h3>Prescription:</h3>
+            <img src="{{ user.patient.prescription.medicine.image.url }}"style="cursor: pointer; width: 175px; height: 150px;  border: 1px solid black; outline-style: solid;">
+            <h3>Dosage: {{user.patient.prescription.dosage}}</h3>
+            <p>Description: {{user.patient.prescription.medicine.description}}<p>
+        </div>
+    </div>
+    {% endif %}
+{% endblock content %}  

@@ -1,8 +1,10 @@
+from urllib import request
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
+from django.shortcuts import render, redirect
 
-#Sign up page
+
 class SignUpView(CreateView):
      form_class = UserCreationForm
      success_url = reverse_lazy("login")
