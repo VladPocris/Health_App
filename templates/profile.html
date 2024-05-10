@@ -1,49 +1,27 @@
 {% extends "base.html" %}
+{% load static %}
+{% block img %}
+{% endblock img %}
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
+    {% if user.is_staff %}
+        <h1>Hello {{user.first_name}}</user></h1>
+        <a href="{% url 'admin:index' %}" class="btn btn-primary">Go to Admin Page</a>
+    {% else %}
     <div class="row my-3 p-3">
-        <img class="rounded-circle account-img" src="{{ Patient.profile.avatar.url }}" style="cursor: pointer;"/>
+        <div class="row my-3 p-3">
+            <img class="rounded-circle account-img" src="{{ user.patient.profile_image.url }}" style="cursor: pointer; width: 175px; height: 150px;  border: 1px solid black; outline-style: solid;"/>
+        </div>
+        <a href="{% url 'update_user' %}">Update</a>
+        <a href="{% url 'password_change' %}">Change Password</a>
+        <div>
+            <h2>Hello {{user.first_name}} {{user.last_name}}</h2>
+            <h3>Email: {{user.email}}</h3>
+            <h3>Prescription:</h3>
+            <img src="{{ user.patient.prescription.medicine.image.url }}"style="cursor: pointer; width: 175px; height: 150px;  border: 1px solid black; outline-style: solid;">
+            <h3>Dosage: {{user.patient.prescription.dosage}}</h3>
+            <p>Description: {{user.patient.prescription.medicine.description}}<p>
+        </div>
     </div>
-    {% if user_form.errors %}
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <div id="form_errors">
-                {% for key, value in user_form.errors.items %}
-                    <strong>{{ value }}</strong>
-                {% endfor %}
-            </div>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
     {% endif %}
-    {% if user.is_authenticated %}
-        <h1>Hello World</h1>
-        {% for patient in patients %}
-            <h2>{{ patient.name }}</h2>
-            <h2>{{ Patient.prescription }}</h2>
-        {% endfor %}
-        <div class="form-content">
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="small mb-1">Email:</label>
-                                {{ user_form.email }}
-                        </div>
-                        <div class="form-group">
-                            <a href="{% url 'password_change' %}">Change Password</a>
-                            <hr>
-                            <label class="small mb-1">Change Avatar:</label>
-                            {{ profile_form.avatar }}
-                        </div>
-                    </div>
-                </div>
-                <br><br>
-                <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
-                <button type="reset" class="btn btn-dark btn-lg">Reset</button>
-            </form>
-        </div>
-      
-    {% endif %}
-{% endblock content %}
+{% endblock content %}  

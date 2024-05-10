@@ -19,8 +19,10 @@ from django.urls import path, include
 from .views import HomePageView, profile
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views
+from django.contrib import admin
+from django.urls import path
 from contact_app.views import ContactView, ContactSuccessView
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePageView.as_view(), name='home'),
@@ -31,6 +33,8 @@ urlpatterns = [
     path('contact/', ContactView, name='contact'),
     path('contact/success/', ContactSuccessView, name='success'),
     path('profile/', profile, name='users-profile'),
+    path('update_user/', views.update_user, name='update_user'),
+    path('admin/', admin.site.urls, name='admin:index'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -4,14 +4,9 @@ from django.contrib.auth.models import User
 from .models import Patient
 
 class RegisterForm(UserCreationForm):
-    name = forms.CharField(max_length=100,required=True,widget=forms.TextInput(attrs={'placeholder': 'Name','class': 'form-control',}))
-    email = forms.EmailField(required=True,widget=forms.TextInput(attrs={'placeholder': 'Email','class': 'form-control',}))
-    password1 = forms.CharField(max_length=50,required=True,widget=forms.PasswordInput(attrs={'placeholder': 'Password','class': 'form-control','data-toggle': 'password','id': 'password',}))
-    password2 = forms.CharField(max_length=50,required=True,widget=forms.PasswordInput(attrs={'placeholder': 'Confirm Password','class': 'form-control','data-toggle': 'password','id': 'password',}))
-
     class Meta:
-        model = User
-        fields = ['name', 'email', 'password1', 'password2']
+        model = User 
+        fields = ['username', 'password1', 'password2']
 
 class LoginForm(forms.Form):
     username = forms.CharField()
@@ -33,4 +28,4 @@ class UpdateProfileForm(forms.ModelForm):
 
     class Meta:
         model = Patient
-        fields = ['profile_image']
+        fields = ('profile_image', )
