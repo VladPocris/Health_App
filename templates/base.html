@@ -47,6 +47,7 @@
                             </span>
                         </a>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item" id="contactBTN">
                         <a class="nav-link" href="{% url 'contact' %}">
                             <i class="fa fa-fw fa-envelope" aria-hidden="true">
@@ -54,6 +55,7 @@
                             Contact
                         </a>
                     </li>
+                    {% endif %}
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     {% if user.is_authenticated %}
