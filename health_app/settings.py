@@ -138,8 +138,8 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 ]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -160,14 +160,14 @@ EMAIL_USE_SSL = False
 
 #S3 BUCKETS CONFIG
 region= 'us-east-1'
-use_s3 = False
+use_s3 = True
 
 STATIC_URL = '/static/'
 
 if use_s3:
-    AWS_ACCESS_KEY_ID = 'ASIATCKAMV54AAO62GWV'
-    AWS_SECRET_ACCESS_KEY = 'IP1RPHKh8wL3iKH/IW/gZHk3o4I0clWVilocU+8J'
-    AWS_STORAGE_BUCKET_NAME = 'staticfiles-implementation2-25-04-2024' 
+    AWS_ACCESS_KEY_ID = 'AKIATCKAMV54G335P7AO'
+    AWS_SECRET_ACCESS_KEY = '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'
+    AWS_STORAGE_BUCKET_NAME = 'staticfiles-implementation12-05-2024' 
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_S3_FILE_OVERWRITE = False
     # s3 static settings
@@ -175,7 +175,7 @@ if use_s3:
 
         # Media file (image) management
         "default": {
-            "BACKEND": "storages.backends.s3boto3.S3StaticStorage"
+            "BACKEND": "health_app.storages.MediaStore"
         },
         # CSS and JS file management
         "staticfiles": {
