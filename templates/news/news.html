@@ -32,9 +32,7 @@
                 </div>
             </div>
         </div>
-        <div>
-            <a href="{% url 'news_new' %}"> <button type="button" class="btn btn-secondary">New object</button></a>
-        </div>
+        
         <div class="row g-2">
             {% for News in all_news_list %}
             <div class="col-md-3">
@@ -55,6 +53,10 @@
                 </div>
             </div>
             {% endfor %}
+        </div>
+        
+        <div>
+            <a href="{% url 'news_new' %}"> <button type="button" class="btn btn-secondary">New object</button></a>
         </div>
         
         <div id="paginator">

@@ -33,7 +33,7 @@ class Patient(models.Model):
     last_name = models.CharField(max_length=255, default='')
     phone_num = models.CharField(max_length=10)
     email = models.CharField(max_length=50)
-    profile_image = models.ImageField(default='default.jpg', upload_to='profile_images')
+    profile_image = models.ImageField(default='profile_images/default.svg', upload_to='profile_images')
     prescription = models.ForeignKey(Prescription, on_delete=models.CASCADE, null=True)
 
     class Meta:

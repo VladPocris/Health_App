@@ -17,17 +17,28 @@
 {% endblock linkJS %}
 
 {% block content %}
-<center>
-<div>
-    <p><b>Title:</b> {{ news.title }}</p>
-    <p><b>Image:</b> <img src="{{ news.image.url }}" width="50%"></p>
-    <p><b>Link:</b> {{ news.link }}</p>
+<div class="container-fluid" id="containerfirst">
+    <center>
+
+        <h3>
+            News details
+        </h3>
+
+        <div class="card">
+            <div>
+                <p><b>Title:</b> {{ news.title }}</p>
+                <p><b>Image:</b> <img src="{{ news.image.url }}" width="50%"></p>
+                <p><b>Link:</b> {{ news.link }}</p>
+            </div>
+            <div class="mt-3">
+            <a href="{% url 'news_edit' news.pk %}">
+                <button type="button" class="btn btn-warning">Edit</button>
+            </a>
+            <a href="{% url 'news_delete' news.pk %}">
+                <button type="button" class="btn btn-danger">Delete</button>
+            </a>
+            </div>
+        </div>
+    </center>
 </div>
-<a href="{% url 'news_edit' news.pk %}">
-    <button type="button" class="btn btn-warning">Edit</button>
-</a>
-<a href="{% url 'news_delete' news.pk %}">
-    <button type="button" class="btn btn-warning">Delete</button>
-</a>
-</center>
 {% endblock content %}

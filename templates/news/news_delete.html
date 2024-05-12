@@ -17,12 +17,19 @@
 {% endblock linkJS %}
 
 {% block content %}
+<div class="container-fluid" id="containerfirst">
 <center>
     <h1>Delete News</h1>
+    <div class="card">
     <form action="" method="post">
         {% csrf_token %}
         <p>Are you sure you want to delete this new? "{{ news.title }}"</p>
-        <input type="submit" value="Confirm">
+        <input type="submit" value="Confirm" class="btn btn-danger">
+        <a href="{% url 'news_edit' news.pk %}">
+            <button type="button" class="btn btn-warning">Go Back</button>
+        </a>
     </form>
+    </div>
 </center>
+</div>
 {% endblock content%}

@@ -1,27 +1,54 @@
 {% extends "base.html" %}
 {% load static %}
 {% block img %}
+<div>
+    <img src="{% static 'images/HomePage.svg' %}" class="img-fluid" id="mainimage">
+</div>
 {% endblock img %}
+{% block linkcss %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+<title>News</title>
+{% endblock linkcss %}
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
+<div class="container-fluid" id="containerfirst">
+    <center>
     {% if user.is_staff %}
         <h1>Hello {{user.first_name}}</user></h1>
-        <a href="{% url 'admin:index' %}" class="btn btn-primary">Go to Admin Page</a>
+        <a href="{% url 'admin:index' %}" class="btn btn-danger">Go to Admin Page</a>
     {% else %}
-    <div class="row my-3 p-3">
-        <div class="row my-3 p-3">
-            <img class="rounded-circle account-img" src="{{ user.patient.profile_image.url }}" style="cursor: pointer; width: 175px; height: 150px;  border: 1px solid black; outline-style: solid;"/>
-        </div>
-        <a href="{% url 'update_user' %}">Update</a>
-        <a href="{% url 'password_change' %}">Change Password</a>
-        <div>
-            <h2>Hello {{user.first_name}} {{user.last_name}}</h2>
-            <h3>Email: {{user.email}}</h3>
+        <img class="rounded-circle account-img" src="{{ user.patient.profile_image.url }}" id="profile_image_default"/>
+            {% if user.first_name or user.last_name%}
+                <h2>Hello {{user.first_name}} {{user.last_name}}</h2>
+            {% else %}
+                <h2>Hello {{user.username}}</h2>
+            {% endif %}
+            <div class="card">
+            {% if user.email%}
+            <h4>Email: {{user.email}}</h4>
+            {% else %}
+            <h4> Please set up an email.</h4>
+            {% endif %}
+            {% if user.prescription %}
             <h3>Prescription:</h3>
             <img src="{{ user.patient.prescription.medicine.image.url }}"style="cursor: pointer; width: 175px; height: 150px;  border: 1px solid black; outline-style: solid;">
             <h3>Dosage: {{user.patient.prescription.dosage}}</h3>
             <p>Description: {{user.patient.prescription.medicine.description}}<p>
+            {% else %}
+            <h3>No prescription assigned.</h3>
+            {% endif %}
+            <div class="mt-2">
+            <a href="{% url 'update_user' %}">
+                <button type="button" class="btn btn-success">Update profile</button>
+            </a>
+            <a href="{% url 'password_change' %}">
+                <button type="button" class="btn btn-success">Change Password</button>
+            </a>
+        </div>
+        </div>
         </div>
     </div>
     {% endif %}
+</center>
+</div>
 {% endblock content %}  

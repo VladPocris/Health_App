@@ -17,12 +17,16 @@
 {% endblock linkJS %}
 
 {% block content %}
+<div class="container-fluid" id="containerfirst">
 <center>
-    <h1>Edit News</h1>
+    <h3>Edit News</h3>
+    <div class="card">
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Update">
+        <input type="submit" value="Update" class="btn btn-warning">
     </form>
+    </div>
 </center>
+</div>
 {% endblock content %}

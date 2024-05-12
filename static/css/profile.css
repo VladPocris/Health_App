@@ -1,0 +1,15 @@
+#containerfirst {
+
+    margin-top: -250px;
+    border: 2px solid black;
+    background-color: white;
+    opacity: 0.9;
+    width: 60%;
+    margin-bottom: 77px;
+
+}
+
+#profile_image_default {
+    width: 23%;
+    align-items: center;
+}
