@@ -27,7 +27,7 @@
         <div class="card">
             <div>
                 <p><b>Title:</b> {{ news.title }}</p>
-                <p><b>Image:</b> <img src="{{ news.image.url }}" width="50%"></p>
+                <p><b>Image:</b> <img src="{{ news.image.url }}" style="width: 100%; max-width: 300px; max-height: 250px; object-fit:contain"></p>
                 <p><b>Link:</b> {{ news.link }}</p>
             </div>
             <div class="mt-3">

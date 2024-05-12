@@ -40,7 +40,7 @@
                     <div class="mt-3">
                         <a href="{{ News.link }}" style="text-decoration: none; color: black">
                             {% if News.image %}
-                            <img src="{{ News.image.url }}" width="100%">
+                            <img src="{{ News.image.url }}" style="width: 100%; max-width: 150px; height: 100px; object-fit: cover;">
                             {% endif %}
                             <h6 class="mt-3">
                                 {{ News.title }}
@@ -79,4 +79,13 @@
 
     </center>
 </div>
+<style>
+    .news-image {
+        width: 100%;
+        height: auto;
+        max-width: 300px; /* Set a fixed maximum width */
+        max-height: 200px; /* Set a fixed maximum height */
+        object-fit: cover; /* Apply cover style to maintain aspect ratio */
+    }
+    </style>
 {% endblock content %}

@@ -17,7 +17,7 @@
         <h1>Hello {{user.first_name}}</user></h1>
         <a href="{% url 'admin:index' %}" class="btn btn-danger">Go to Admin Page</a>
     {% else %}
-        <img class="rounded-circle account-img" src="{{ user.patient.profile_image.url }}" id="profile_image_default"/>
+        <img class="rounded-circle" src="{{ user.patient.profile_image.url }}" id="profile_image_default" style="width: 100%; max-width: 150px; height: 100px; object-fit: cover;"/>
             {% if user.first_name or user.last_name%}
                 <h2>Hello {{user.first_name}} {{user.last_name}}</h2>
             {% else %}
