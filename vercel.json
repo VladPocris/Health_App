@@ -2,11 +2,7 @@
   "builds": [{
     "src": "health_app/wsgi.py",
     "use": "@vercel/python",
-    "config": { "maxLambdaSize": "15mb", "runtime": "python.3.12"},
-    "env": {
-      "MYSQLCLIENT_CFLAGS": "$MYSQLCLIENT_CFLAGS",
-      "MYSQLCLIENT_LDFLAGS": "$MYSQLCLIENT_LDFLAGS"
-    }
+    "config": { "maxLambdaSize": "15mb", "runtime": "python.3.12"}
     }],
    "routes": [
      {
