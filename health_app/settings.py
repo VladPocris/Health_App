@@ -165,9 +165,9 @@ use_s3 = True
 STATIC_URL = '/static/'
 
 if use_s3:
-    AWS_ACCESS_KEY_ID = 'AKIATCKAMV54G335P7AO'
-    AWS_SECRET_ACCESS_KEY = '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'
-    AWS_STORAGE_BUCKET_NAME = 'staticfiles-implementation12-05-2024' 
+    AWS_ACCESS_KEY_ID = 'AKIATCKAMV54H24SVDTP'
+    AWS_SECRET_ACCESS_KEY = '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'
+    AWS_STORAGE_BUCKET_NAME = 'staticfiles-and-media-implementation13-05-2024' 
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_S3_FILE_OVERWRITE = False
     # s3 static settings
